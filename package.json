@@ -4,7 +4,7 @@
   "description": "iNoteBook - your notes on the cloud",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "nodemon ./index.js"
   },
   "repository": {
     "type": "git",
@@ -13,10 +13,21 @@
   "author": "Uday Wahi",
   "license": "ISC",
   "dependencies": {
+    "dotenv": "^10.0.0",
     "express": "^4.17.1",
+    "express-validator": "^6.12.1",
     "mongoose": "^6.0.5"
   },
   "devDependencies": {
     "nodemon": "^2.0.12"
+  },
+  "nodemonConfig": {
+    "ignore": [
+      "node_modules/**/node_modules",
+      ".git"
+    ],
+    "env": {
+      "NODE_ENV": "development"
+    }
   }
 }
