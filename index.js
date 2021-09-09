@@ -8,16 +8,19 @@ const app = express();
 const port = process.env.PORT || 3000;
 const hostname = "localhost";
 
+//Middleware
 app.use(json());
 
 //Available Routes
 app.use("/api/auth", require("./routes/auth"));
 app.use("/api/notes", require("./routes/notes"));
 
+//home page
 app.get("/", (req, res) => {
-  res.send("Hello World!");
+  res.send("home page here");
 });
 
+//starting the server
 app.listen(port, hostname, () => {
-  console.log(`server listening at http://${hostname}:${port}`);
+  console.log(`node server http://${hostname}:${port}`);
 });
