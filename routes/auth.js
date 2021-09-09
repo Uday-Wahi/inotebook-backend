@@ -1,11 +1,11 @@
 require("dotenv").config();
 const express = require("express");
 const { body, validationResult } = require("express-validator");
-const router = express.Router();
 const User = require("../models/User");
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 
+const router = express.Router();
 const jwtsecret = process.env.JWT_SECRET;
 
 // user input validation scheme
@@ -14,19 +14,18 @@ let userCredsValidate = [
     min: 3,
     max: 26,
   }),
+  body("email", "enter a valid email").isEmail(),
   body("password", "your password should be atleast 12 characters").isLength({
     min: 12,
   }),
-  body("email", "enter a valid email").isEmail(),
 ];
 
 // Create a User using: POST "/api/auth/createuser", Doesn't require login
 router.post("/createuser", userCredsValidate, async (req, res) => {
   // user creds validation, error handling and returning if bad request
   const errors = validationResult(req);
-  if (!errors.isEmpty()) {
+  if (!errors.isEmpty())
     return res.status(400).json({ errors: errors.array() });
-  }
 
   // Checking whether the user with this email already exists
   try {
@@ -61,4 +60,17 @@ router.post("/createuser", userCredsValidate, async (req, res) => {
   }
 });
 
+// Create a User using: POST "/api/auth/login", Doesn't require login
+router.post(
+  "/login",
+  userCredsValidate[1],
+  userCredsValidate[2],
+  async (req, res) => {
+    // user creds validation, error handling and returning if bad request
+    const errors = validationResult(req);
+    if (!errors.isEmpty())
+      return res.status(400).json({ errors: errors.array() });
+    res.json(req.body);
+  }
+);
 module.exports = router;
