@@ -15,7 +15,7 @@ const connectToMongo = () => {
 
 //Event emitters handling on mongoose client
 mongoose.connection.once("disconnected", () => {
-  console.log("Could not establish connection with mongoDB");
+  console.log("Connection with mongoDB broken");
 });
 
 module.exports = connectToMongo;
