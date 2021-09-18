@@ -22,5 +22,5 @@ app.get("/", (req, res) => {
 
 //starting the server
 app.listen(port, hostname, () => {
-  console.log(`node server http://${hostname}:${port}`);
+  console.log(`iNoteBook server http://${hostname}:${port}`);
 });
