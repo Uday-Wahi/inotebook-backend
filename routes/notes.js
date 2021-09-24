@@ -22,7 +22,11 @@ router.post("/addnote", noteValidate, fetchUser, async (req, res) => {
   // getting the user ID as string from the fetchuser module
   const userID = req.user.id;
   // extracting title, description and tag from request body
-  const { title, description, tag } = req.body;
+  let { title, description, tag } = req.body;
+  // As tag is optional, so if it's empty then add "general" to it
+  if (tag.length == 0) {
+    tag = "general";
+  }
   try {
     // Querying if a same title for a user is present or not
     let note = await Notes.find({ $and: [{ userID }, { title }] });
@@ -38,7 +42,7 @@ router.post("/addnote", noteValidate, fetchUser, async (req, res) => {
     // saving the note
     const savedNote = await note.save();
     // sending the saved note info
-    res.send(savedNote);
+    res.send({ success: "The note has been saved successfully", savedNote });
 
     // database error
   } catch (err) {
@@ -88,7 +92,7 @@ router.put("/updatenote/:id", fetchUser, noteValidate, async (req, res) => {
     note = await Notes.findByIdAndUpdate(req.params.id, { $set: newNote });
 
     // sending the updated note to user
-    res.json(note);
+    res.json({ success: "The note has been updated successfully", note });
 
     // database error
   } catch (err) {
@@ -110,7 +114,7 @@ router.delete("/deletenote/:id", fetchUser, async (req, res) => {
     // finding the note to be updated and updating it with the newNote object
     note = await Notes.findByIdAndDelete(req.params.id);
 
-    // sending the updated note to user
+    // sending the deleted note to user
     res.json({ success: "The note has been deleted successfully", note });
 
     // database error
