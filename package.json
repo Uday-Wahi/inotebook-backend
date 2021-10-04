@@ -4,6 +4,7 @@
   "description": "iNoteBook - your notes on the cloud",
   "main": "index.js",
   "scripts": {
+    "start": "node index.js",
     "dev": "nodemon ./index.js"
   },
   "repository": {
@@ -28,9 +29,6 @@
     "ignore": [
       "node_modules/**/node_modules",
       ".git"
-    ],
-    "env": {
-      "NODE_ENV": "development"
-    }
+    ]
   }
 }
