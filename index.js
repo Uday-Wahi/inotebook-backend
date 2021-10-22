@@ -3,7 +3,6 @@ const connectToMongo = require("./db");
 const express = require("express");
 const cors = require("cors");
 const { json } = require("express");
-const path = require("path");
 
 connectToMongo();
 const app = express();
