@@ -5,7 +5,12 @@ const mongoURI = process.env.MONGO_URI;
 
 const connectToMongo = () => {
   //mongoose connection options
-  option = { serverSelectionTimeoutMS: 1000, socketTimeoutMS: 60000 };
+  option = {
+    serverSelectionTimeoutMS: 1000,
+    socketTimeoutMS: 60000,
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+  };
   // starting the connection to mongoDB
   mongoose.connect(mongoURI, option, (err) => {
     if (err) console.error(err.message);
