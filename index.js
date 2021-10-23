@@ -7,7 +7,7 @@ const { json } = require("express");
 connectToMongo();
 const app = express();
 const port = process.env.PORT || 3000;
-const hostname = "localhost";
+const hostname = "0.0.0.0";
 
 // Middleware
 app.use(json());
