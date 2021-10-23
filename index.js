@@ -19,7 +19,7 @@ app.use("/api/notes", require("./routes/notes"));
 
 // home page
 app.get("/", (req, res) => {
-  res.send("home page here");
+  res.send("<h1>API is sending response</h1>");
 });
 
 // starting the server
