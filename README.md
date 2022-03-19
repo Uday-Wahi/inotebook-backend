@@ -8,7 +8,7 @@ your notes on the cloud
 * Every field validation
 * E-mail validation
 * Password min length 12 so that user can generate strong password
-* 
+
 ## Live Preview
 #### [inotebook-backend](https://notesoncloud.herokuapp.com/)
 
