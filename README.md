@@ -35,13 +35,13 @@ Adds a new user to the database
 
 #### Login user
 
-```http
+```bash
   POST /api/auth/Login
 ```
 Logins the user and adds the jwt token to localStorage 
 #### Fetch user details excluding password
 
-```http
+```bash
   POST /api/auth/fetchuser
 ```
 Fetches the user details like `User id`, `Name`, `E-mail`, `SignUp Date`
@@ -49,21 +49,21 @@ Fetches the user details like `User id`, `Name`, `E-mail`, `SignUp Date`
 
 #### Add a new note
 
-```http
+```bash
   POST /api/notes/addnote
 ```
 
 Adds a new note to the database and check if the same title is not being used again, if used again then fails to add that note
 #### Fetch all user notes
 
-```http
+```bash
   GET /api/notes/fetchallnotes
 ```
 
 Fetches all notes of the logged in user
 #### Update a specific user note
 
-```http
+```bash
   PUT /api/notees/updatenote/${id}
 ```
 
@@ -73,7 +73,7 @@ Fetches all notes of the logged in user
 
 #### Delete a specific user note
 
-```http
+```bash
   DELETE /api/notes/deletenote/${id}
 ```
 
