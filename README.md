@@ -14,7 +14,7 @@ your notes on the cloud
 
 ## API Reference
 ### To check if API is responding
-```http
+```bash
 GET /
 ```
 
@@ -28,7 +28,7 @@ Everything works fine
 
 #### Create new user
 
-```http
+```bash
   POST /api/auth/createuser
 ```
 Adds a new user to the database
