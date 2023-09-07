@@ -3,7 +3,7 @@ const mongoose = require("mongoose");
 
 const mongoURI = process.env.MONGO_URI;
 
-const connectToMongo = () => {
+const connectToMongo = async () => {
   //mongoose connection options
   option = {
     serverSelectionTimeoutMS: 1000,
@@ -12,7 +12,7 @@ const connectToMongo = () => {
     useUnifiedTopology: true,
   };
   // starting the connection to mongoDB
-  mongoose.connect(mongoURI, option, (err) => {
+  await mongoose.connect(mongoURI, option, (err) => {
     if (err) console.error(err.message);
     else console.log("Connected to mongoDB successfully");
   });
