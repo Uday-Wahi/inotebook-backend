@@ -23,7 +23,7 @@
     "mongoose": "^6.8.1"
   },
   "devDependencies": {
-    "nodemon": "^2.0.20"
+    "nodemon": "3.0.1"
   },
   "nodemonConfig": {
     "ignore": [
